@@ -43,3 +43,28 @@ h2 {
   color: #555;
   line-height: 1.6;
 }
+
+.skills {
+  margin-top: 24px;
+}
+
+.skills h3 {
+  font-size: 1rem;
+  color: #667eea;
+  margin-bottom: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tag {
+  background: #667eea;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
