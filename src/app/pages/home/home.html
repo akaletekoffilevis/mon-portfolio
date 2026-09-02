@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card">
+    <img src="phtodemoi.png" alt="Photo de {{ profile().name }}" class="photo" />
+
+    <!-- Signaux : les valeurs entre parenthèses () sont des signals suivis par Angular -->
+    <h1>{{ profile().title }}</h1>
+    <h2>{{ profile().name }}</h2>
+    <p class="presentation">{{ profile().presentation }}</p>
+
+    <!-- Template : boucle @for pour afficher chaque compétence -->
+    <div class="skills">
+      <h3>Mes compétences</h3>
+
+      <!-- @if : condition pour afficher un message si aucune compétence -->
+      @if (skills().length > 0) {
+        <div class="tags">
+          @for (skill of skills(); track skill) {
+            <!-- Component : composant réutilisable app-skill-card -->
+            <app-skill-card [name]="skill" />
+          }
+        </div>
+        <div class="experience">
+          <h4>Expérience (années)</h4>
+          <!-- @for : boucle sur l'objet experience via Object.entries -->
+          @for (item of experience() | keyvalue; track item.key) {
+            <div class="exp-row">
+              <span>{{ item.key }}</span>
+              <span class="exp-bar">
+                <span class="exp-fill" [style.width.%]="item.value * 20"></span>
+              </span>
+              <span>{{ item.value }} an{{ item.value > 1 ? 's' : '' }}</span>
+            </div>
+          }
+        </div>
+      } @else {
+        <p>Aucune compétence renseignée.</p>
+      }
+    </div>
+
+    <!-- bouton "J'aime" : met à jour un signal au clic -->
+    <button class="like-btn" (click)="addLike()">&#128420; J'aime ({{ likeCount() }})</button>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Koffi Levis AKALETE &mdash; <a href="https://github.com/akaletekoffilevis" target="_blank">Mon GitHub</a></p>
+  </footer>
+</div>
