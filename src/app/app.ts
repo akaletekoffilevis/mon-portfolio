@@ -34,6 +34,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
       font-weight: 600;
       padding: 6px 16px;
       border-radius: 20px;
+      cursor: pointer;
     }
     .nav a:hover {
       background: rgba(102, 126, 234, 0.15);
